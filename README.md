@@ -1,12 +1,13 @@
 # Web AR Demo with AR.js
 
 This is a testing demo for multiple NFT markers.
-Scan https://chowing110.github.io/img-src/2b.jpg in order to view the custom model with text description
 
-To test the demo
+Demo
 https://chowing110.github.io
 
-Scan this picture
+Scan https://chowing110.github.io/img-src/2b.jpg to view the custom model with text description
+
+Or scan this picture
 https://chowing110.github.io/img-src/2.jpg
 
 Notes for developer
