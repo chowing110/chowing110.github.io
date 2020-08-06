@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>Image based tracking AR.js demo</title>
+    <!-- import aframe and then ar.js with image tracking / location based features -->
+    <script src="https://cdn.jsdelivr.net/gh/aframevr/aframe@1c2407b26c61958baa93967b5412487cd94b290b/dist/aframe-master.min.js"></script>
+    <script src="https://raw.githack.com/AR-js-org/AR.js/master/aframe/build/aframe-ar-nft.js"></script>
+
+    <!-- style for the loader -->
+<style>
+  .arjs-loader {
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-color: rgba(0, 0, 0, 0.8);
+    z-index: 9999;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .arjs-loader div {
+    text-align: center;
+    font-size: 1.25em;
+    color: white;
+  }
+</style>
+</head>
+
+<body style="margin : 0px; overflow: hidden;">
+  <!-- minimal loader shown until image descriptors are loaded -->
+  <div class="arjs-loader">
+    <div>Loading, please wait...</div>
+  </div>
+  <a-scene
+    vr-mode-ui="enabled: false;"
+    renderer="logarithmicDepthBuffer: true;"
+    embedded
+    arjs="trackingMethod: best; sourceType: webcam;debugUIEnabled: false;"
+  >
+    <!-- we use cors proxy to avoid cross-origin problems -->
+    <a-nft
+      type="nft"
+      url="./descriptors/2a"
+      smooth="true"
+      smoothCount="10"
+      smoothTolerance=".01"
+      smoothThreshold="5"
+    >
+      <a-box position="0 0 0" rotation="0 45 0" color="#4CC3D9" depth="2" height="30" width="30"></a-box>
+    </a-nft>
+    <a-nft
+      type="nft"
+      url="./descriptors/2b"
+      smooth="true"
+      smoothCount="10"
+      smoothTolerance=".01"
+      smoothThreshold="5"
+    >
+      
+        <a-entity 
+        text="value:This is sheep_vase_5.obj"
+        rotation="-45 0 0"
+        position="0 100 0"
+        scale="400 400 400"
+        >
+        </a-entity>
+        <a-entity 
+          obj-model="obj:url(https://chowing110.github.io/obj/sheep_vase_5.obj);
+          mtl:url(https://chowing110.github.io/obj/sheep_vase_5.mtl)"
+          position="0 0 0"
+          rotation="-45 0 0"
+          scale="5 5 5"
+        >
+        </a-entity>
+    </a-nft>
+    <a-nft
+      type="nft"
+      url="./descriptors/2c"
+      smooth="true"
+      smoothCount="10"
+      smoothTolerance=".01"
+      smoothThreshold="5"
+    >
+      <a-cylinder position="0 -3 -3" radius="30" height="30" color="#FFC65D" shadow></a-cylinder>
+    </a-nft>
+    <a-nft
+      type="nft"
+      url="./descriptors/2d"
+      smooth="true"
+      smoothCount="10"
+      smoothTolerance=".01"
+      smoothThreshold="5"
+    >
+      <a-cylinder position="0 0 3" radius="30" height="30" color="#FF5DE9" shadow></a-cylinder>
+    </a-nft>
+    <a-entity camera></a-entity>
+  </a-scene>
+</body>
+</html>

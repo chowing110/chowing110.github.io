@@ -1,0 +1,56 @@
+# Blender MTL File: 'sheepVase.blend'
+# Material Count: 5
+
+newmtl None
+Ns 0
+Ka 0.000000 0.000000 0.000000
+Kd 0.8 0.8 0.8
+Ks 0.8 0.8 0.8
+d 1
+illum 2
+map_Kd sheepvase_texture.jpg
+
+newmtl Textured.012
+Ns 94.117647
+Ka 1.000000 1.000000 1.000000
+Kd 0.048878 0.132860 0.070558
+Ks 0.048172 0.132868 0.070360
+Ke 0.000000 0.000000 0.000000
+Ni 1.000000
+d 1.000000
+illum 2
+map_Ka sheepvase_texture.jpg
+map_Kd sheepvase_texture.jpg
+
+newmtl body
+Ns 94.117647
+Ka 1.000000 1.000000 1.000000
+Kd 0.640000 0.640000 0.640000
+Ks 0.500000 0.500000 0.500000
+Ke 0.000000 0.000000 0.000000
+Ni 1.000000
+d 1.000000
+illum 2
+map_Kd sheepvase_texture.jpg
+
+newmtl body_NONE
+Ns 94.117647
+Ka 1.000000 1.000000 1.000000
+Kd 0.640000 0.640000 0.640000
+Ks 0.500000 0.500000 0.500000
+Ke 0.000000 0.000000 0.000000
+Ni 1.000000
+d 1.000000
+illum 2
+map_Kd sheepvase_texture.jpg
+
+newmtl body_sheepvase_texture.jpg
+Ns 94.117647
+Ka 1.000000 1.000000 1.000000
+Kd 0.640000 0.640000 0.640000
+Ks 0.500000 0.500000 0.500000
+Ke 0.000000 0.000000 0.000000
+Ni 1.000000
+d 1.000000
+illum 2
+map_Kd sheepvase_texture.jpg
