@@ -36,7 +36,9 @@ https://ar-js-org.github.io/AR.js-Docs/image-tracking/#create-image-descriptors
 		npm run demo
 
 * Handling multiple NFT markers
+	
 	https://github.com/AR-js-org/AR.js/issues/132
+		
 		* consider a page as a scene
 		you are allowed to setup multiple NFT markers in a scene
 		and when you focus the view on any described image exclusively
