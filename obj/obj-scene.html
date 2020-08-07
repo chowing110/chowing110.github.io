@@ -9,15 +9,32 @@
       <a-assets>
         <a-mixin
           id="marker"
-          geometry="primitive: plane; width: 0.02; height: 0.02"
+          geometry="primitive: plane; width: 0.03; height: 0.03"
           material="color: red"
         ></a-mixin>
       </a-assets>
 
-      <a-entity mixin="marker" position="-2.5 0.7 0.01"></a-entity>
+      <!-- Vase model at position 0 0 0 -->
+      <a-entity mixin="marker" position="0 0 0"></a-entity>
+      <a-entity 
+        obj-model="obj:url(https://chowing110.github.io/obj/sheep_vase_5.obj);
+        mtl:url(https://chowing110.github.io/obj/sheep_vase_5.mtl)"
+        position="0 0 0"
+        scale="0.1 0.1 0.1"
+      >
+
+      <!-- Square model at position 1 1 1 -->
+      <a-entity mixin="marker" position="1 1 1"></a-entity>
+      <a-entity 
+        obj-model="obj:url(https://chowing110.github.io/obj/square.obj);
+        mtl:url(https://chowing110.github.io/obj/square.mtl)"
+        position="1 1 1"
+        scale="0.1 0.1 0.1"
+      >
 
       <!-- Spacing. -->
       <a-entity mixin="marker" position="-1 2.5 0.01"></a-entity>
+
       <a-entity 
         geometry="primitive: plane; width: auto; height: auto" material="color: #333"
         text="value:This is sheep_vase_5.obj"
