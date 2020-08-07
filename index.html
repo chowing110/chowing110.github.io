@@ -45,58 +45,27 @@
     <!-- we use cors proxy to avoid cross-origin problems -->
     <a-nft
       type="nft"
-      url="./descriptors/2a"
+      url="./descriptors/2"
       smooth="true"
       smoothCount="10"
       smoothTolerance=".01"
       smoothThreshold="5"
     >
-      <a-box position="0 0 0" rotation="0 45 0" color="#4CC3D9" depth="2" height="30" width="30"></a-box>
-    </a-nft>
-    <a-nft
-      type="nft"
-      url="./descriptors/2b"
-      smooth="true"
-      smoothCount="10"
-      smoothTolerance=".01"
-      smoothThreshold="5"
-    >
-      
-        <a-entity 
-        text="value:This is sheep_vase_5.obj"
+      <a-entity 
+      text="value:This is sheep_vase_5.obj"
+      rotation="-45 0 0"
+      position="0 100 0"
+      scale="400 400 400"
+      >
+      </a-entity>
+      <a-entity 
+        obj-model="obj:url(https://chowing110.github.io/obj/sheep_vase_5.obj);
+        mtl:url(https://chowing110.github.io/obj/sheep_vase_5.mtl)"
+        position="0 0 0"
         rotation="-45 0 0"
-        position="0 100 0"
-        scale="400 400 400"
-        >
-        </a-entity>
-        <a-entity 
-          obj-model="obj:url(https://chowing110.github.io/obj/sheep_vase_5.obj);
-          mtl:url(https://chowing110.github.io/obj/sheep_vase_5.mtl)"
-          position="0 0 0"
-          rotation="-45 0 0"
-          scale="5 5 5"
-        >
-        </a-entity>
-    </a-nft>
-    <a-nft
-      type="nft"
-      url="./descriptors/2c"
-      smooth="true"
-      smoothCount="10"
-      smoothTolerance=".01"
-      smoothThreshold="5"
-    >
-      <a-cylinder position="0 -3 -3" radius="30" height="30" color="#FFC65D" shadow></a-cylinder>
-    </a-nft>
-    <a-nft
-      type="nft"
-      url="./descriptors/2d"
-      smooth="true"
-      smoothCount="10"
-      smoothTolerance=".01"
-      smoothThreshold="5"
-    >
-      <a-cylinder position="0 0 3" radius="30" height="30" color="#FF5DE9" shadow></a-cylinder>
+        scale="5 5 5"
+      >
+      </a-entity>
     </a-nft>
     <a-entity camera></a-entity>
   </a-scene>
