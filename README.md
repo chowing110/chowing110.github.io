@@ -39,11 +39,11 @@ https://ar-js-org.github.io/AR.js-Docs/image-tracking/#create-image-descriptors
 	
 	https://github.com/AR-js-org/AR.js/issues/132
 		
-		* consider a page as a scene
-		you are allowed to setup multiple NFT markers in a scene
-		and when you focus the view on any described image exclusively
-		the content will appear
+	* consider a page as a scene
+	you are allowed to setup multiple NFT markers in a scene
+	and when you focus the view on any described image exclusively
+	the content will appear
 
-		* but it cannot handle multiple NFT markers in one view
-		either no content appears or only one content appears
-		it is not supported
+	* but it cannot handle multiple NFT markers in one view
+	either no content appears or only one content appears
+	it is not supported
