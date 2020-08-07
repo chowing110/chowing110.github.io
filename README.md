@@ -14,12 +14,14 @@ This is a testing demo for multiple NFT markers built with AR.js and A-Frame.
 --Go to https://chowing110.github.io/interaction/gesture/gesture.html
 
 --Scan https://chowing110.github.io/img-src/2.jpg to view the custom model and play with it.
+
 --Cloned from https://github.com/fcor/arjs-gestures
 
 # Demo - Clicking event on image tracking
 --Go to https://chowing110.github.io/interaction/click/click.html
 
 --Scan https://github.com/nicolocarpignoli/nicolocarpignoli.github.io/blob/master/ar-click-events/06-barcode.png to view the custom model and play with it.
+
 --Cloned from https://medium.com/swlh/how-to-handle-click-events-on-ar-js-f397ea5994d
 
 # Notes for developer
