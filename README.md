@@ -1,25 +1,37 @@
 # Web AR Demo with AR.js
 
-This is a testing demo for multiple NFT markers.
+This is a testing demo for multiple NFT markers built with AR.js and A-Frame.
 
-Demo
-https://chowing110.github.io
+# Demo - Vanilla image tracking
+--Go to https://chowing110.github.io
 
-Scan https://chowing110.github.io/img-src/2b.jpg to view the custom model with text description
+--Scan https://chowing110.github.io/img-src/2b.jpg to view the custom model with text description.
 
-Or scan this picture
-https://chowing110.github.io/img-src/2.jpg
+--Or scan this picture
+  https://chowing110.github.io/img-src/2.jpg
 
-Notes for developer
+# Demo - Hand gesture on image tracking
+--Go to https://chowing110.github.io/interaction/gesture/gesture.html
+
+--Scan https://chowing110.github.io/img-src/2.jpg to view the custom model and play with it.
+--Cloned from https://github.com/fcor/arjs-gestures
+
+# Demo - Clicking event on image tracking
+--Go to https://chowing110.github.io/interaction/click/click.html
+
+--Scan https://chowing110.github.io/img-src/2.jpg to view the custom model and play with it.
+--Cloned from https://medium.com/swlh/how-to-handle-click-events-on-ar-js-f397ea5994d
+
+# Notes for developer
 * Create NFT marker for image
 https://github.com/Carnaux/NFT-Marker-Creator
 https://ar-js-org.github.io/AR.js-Docs/image-tracking/#create-image-descriptors
 
-	npm install
+		npm install
 
-	node app.js -i IMAGE.jpg
+		node app.js -i IMAGE.jpg
 
-	npm run demo
+		npm run demo
 
 * Handling multiple NFT markers
 	https://github.com/AR-js-org/AR.js/issues/132
