@@ -17,6 +17,23 @@
             });        
           }
         });
+
+        AFRAME.registerComponent('video-handler', {
+          init: function () {
+            this.onClick = this.onClick.bind(this);
+          },
+          play: function () {
+            window.addEventListener('click', this.onClick);
+          },
+          pause: function () {
+            window.removeEventListener('click', this.onClick);
+          },
+          onClick: function (evt) {
+            var video = this.el.components.material.material.map.image;
+            if (!video) { return; }
+            video.paused ? video.play() : video.pause();
+          }
+        });
       </script>
     <div style='position: fixed; top: 10px; width:100%; text-align: center; z-index: 9999;'>
       <button>
@@ -30,6 +47,10 @@
           geometry="primitive: plane; width: 0.03; height: 0.03"
           material="color: red"
         ></a-mixin>
+        <video id="vid" preload="auto" 
+               src="https://cors-anywhere.herokuapp.com/http://techslides.com/demos/sample-videos/small.webm"
+               width="160" height="90"
+               autoplay loop="true" crossorigin></video>
       </a-assets>
 
       <!-- Square model at position 0 0 0 -->
@@ -68,28 +89,19 @@
       
 
       <!-- Alignments. -->
-      <a-entity position="2 2 0">
+      <a-entity position="2 2 0" id="mouseCursor" cursor="rayOrigin: mouse" raycaster="objects: .clickable">
         <a-entity mixin="marker" position="0 0 0.01"></a-entity>
-        <a-entity position="0 0 0" geometry="primitive: plane; width: auto; height: auto" material="color: #333"
-                  text="color: yellow; align: left; value: [LEFT ALIGNED]; width: 2; ">
-        </a-entity>
-        <a-entity mixin="marker" position="0 0.2 0.01"></a-entity>
-        <a-entity position="0 0.2 0" geometry="primitive: plane; width: auto; height: auto" material="color: #333"
-                  text="color: red; align: right; value: [RIGHT ALIGNED]; width: 2; ">
-        </a-entity>
-        <a-entity mixin="marker" position="0 0.4 0.01"></a-entity>
-        <a-entity position="0 0.4 0" geometry="primitive: plane; width: auto; height: auto" material="color: #eee"
-                  text="color: blue; align: center; value: [CENTER ALIGNED]; width: 2; ">
-        </a-entity>
-      </a-entity>
-
+        <a-video video-handler class='clickable' src='#vid' position='0 0 0' width='3'height='1.75'> </a-video> </a-entity>
       <a-entity position="0 1.8 2">
         <a-entity camera look-controls wasd-controls></a-entity>
       </a-entity>
     </a-scene>
   </body>
   <script>
+    
     document.querySelector("button").addEventListener("click", (e)=> {
+      // do stuff here.
+      // animation__mousedown="property: rotation; easing: linear; to: 0 360 0; startEvents: mouseenter; dur: 10000";
       var el = document.querySelector("#rotate");
       el.emit('rotate');
     })
