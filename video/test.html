@@ -1,0 +1,31 @@
+<html>
+  <head>
+    <title>Text</title>
+    <meta name="description" content="Text - A-Frame">
+    <script src="https://aframe.io/releases/1.0.0/aframe.min.js"></script>
+  </head>
+  <body>
+    <script src='play-by-click.js'></script>
+
+    <a-scene background="color: #222">
+      <a-assets>
+        <a-mixin
+          id="marker"
+          geometry="primitive: plane; width: 0.03; height: 0.03"
+          material="color: red"
+        ></a-mixin>
+        <video id="vid" preload="auto" 
+               src="https://cors-anywhere.herokuapp.com/http://techslides.com/demos/sample-videos/small.webm"
+               width="160" height="90"
+               autoplay loop="true" crossorigin></video>
+      </a-assets>
+
+      <a-entity position="0 2 0" id="mouseCursor" cursor="rayOrigin: mouse" raycaster="objects: .clickable">
+        <a-entity mixin="marker" position="0 0 0.01"></a-entity>
+        <a-video play-by-click class='clickable' src='#vid' position='0 0 0' width='3'height='1.75'> </a-video> </a-entity>
+      <a-entity position="0 1.8 2">
+        <a-entity camera look-controls wasd-controls></a-entity>
+      </a-entity>
+    </a-scene>
+  </body>
+</html>
