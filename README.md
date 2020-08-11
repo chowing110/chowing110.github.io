@@ -27,7 +27,9 @@ This is a testing demo for multiple NFT markers built with AR.js and A-Frame.
 # Demo - Playing video on image tracking
 --Go to https://chowing110.github.io/video/index.html
 
---Scan https://chowing110.github.io/img-src/pinball.jpg
+--Scan https://chowing110.github.io/img-src/2.jpg
+
+--Demo in pure A-Frame https://chowing110.github.io/video/test.html (Click on video)
 
 --Cloned from https://github.com/AR-js-org/AR.js/tree/master/aframe/examples/image-tracking/nft-video
 
