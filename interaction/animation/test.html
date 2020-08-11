@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <title>AnimateButton</title> 
+    <meta charset="utf-8" />
+    <script src="https://aframe.io/releases/1.0.0/aframe.min.js"></script>
+  </head>
+
+<script>
+    AFRAME.registerComponent('click-listener', {
+      init: function () {
+        // Listen for click event
+        this.el.addEventListener('click', function (evt) {          
+          //console.log("cursor clicked on ", this.id);
+          // Call the Octahedron and trigger it's scalewave animation
+          var elOctohedron = document.querySelector('#rotate');
+          elOctohedron.emit('rotate');
+        });        
+      }
+    });
+  </script>
+
+    <a-scene>         
+      <a-entity id="mouseCursor" cursor="rayOrigin: mouse" raycaster="objects: .clickable"></a-entity>
+   
+      <a-entity  id="rotate" 
+        obj-model="obj:url(https://chowing110.github.io/obj/sheep_vase_5.obj);
+        mtl:url(https://chowing110.github.io/obj/sheep_vase_5.mtl)"
+        position="0 0 -5"
+        scale="0.15 0.15 0.15"           
+        animation__rotate="property: rotation; easing: linear; to: 0 360 0; startEvents: rotate; dur: 1000; dir: alternate; loop: 2"
+      ></a-entity> 
+     
+      <a-entity  id="redBall" 
+        class="clickable" geometry="primitive: sphere; radius: 0.33" position="0 2 -5" material="color: red" click-listener
+      ></a-entity> 
+
+    </a-scene>
+  
+</html>
