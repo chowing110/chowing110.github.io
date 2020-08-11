@@ -20,7 +20,11 @@
       }
     });
   </script>
-
+  <div style='position: fixed; top: 10px; width:100%; text-align: center; z-index: 9999;'>
+    <button>
+      Rotate
+    </button>
+  </div>
     <a-scene>         
       <a-entity id="mouseCursor" cursor="rayOrigin: mouse" raycaster="objects: .clickable"></a-entity>
    
@@ -37,5 +41,12 @@
       ></a-entity> 
 
     </a-scene>
+
+  <script>
+    document.querySelector("button").addEventListener("click", (e)=> {
+      var el = document.querySelector("#rotate");
+      el.emit('rotate');
+    })
+  </script>
   
 </html>
