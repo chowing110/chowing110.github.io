@@ -32,11 +32,12 @@ This is a testing demo for multiple NFT markers built with AR.js and A-Frame.
 --Cloned from https://github.com/AR-js-org/AR.js/tree/master/aframe/examples/image-tracking/nft-video
 
 # Demo - Playing animation by event (Click to rotate)
---Go to https://chowing110.github.io/interaction/animation/nft.html
+--Go to https://chowing110.github.io/interaction/animation/nft.html (Click the red ball)
+--Go to https://chowing110.github.io/interaction/animation/nft-button.html (Click the button)
 
 --Scan https://chowing110.github.io/img-src/2.jpg
 
---Demo in pure A-Frame https://chowing110.github.io/interaction/animation/test.html
+--Demo in pure A-Frame https://chowing110.github.io/interaction/animation/test.html (Both red ball and button works)
 
 # Notes for developer
 * Create NFT marker for image
