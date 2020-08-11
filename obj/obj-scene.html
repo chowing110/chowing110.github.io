@@ -53,15 +53,6 @@
                autoplay loop="true" crossorigin></video>
       </a-assets>
 
-      <!-- Square model at position 0 0 0 -->
-      <a-entity mixin="marker" position="0 0 0"></a-entity>
-      <a-entity 
-        obj-model="obj:url(URL/square.obj);
-        mtl:url(URL/square.mtl)"
-        position="0 0 0"
-        scale="0.1 0.1 0.1"
-      >
-
       <!-- Spacing. -->
       <a-entity mixin="marker" position="-1 2.5 0.01"></a-entity>
 
@@ -78,13 +69,13 @@
       <a-entity  id="rotate" 
         obj-model="obj:url(https://chowing110.github.io/obj/sheep_vase_5.obj);
         mtl:url(https://chowing110.github.io/obj/sheep_vase_5.mtl)"
-        position="0 0 -5"
+        position="0 0 0"
         scale="0.15 0.15 0.15"           
         animation__rotate="property: rotation; easing: linear; to: 0 360 0; startEvents: rotate; dur: 1000; dir: alternate; loop: 2"
       ></a-entity> 
      
       <a-entity  id="redBall" 
-        class="clickable" geometry="primitive: sphere; radius: 0.33" position="0 2 -5" material="color: red" click-listener
+        class="clickable" geometry="primitive: sphere; radius: 0.33" position="0 2 0" material="color: red" click-listener
       ></a-entity> 
       
 
