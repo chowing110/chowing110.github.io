@@ -62,7 +62,7 @@
         mtl:url(https://chowing110.github.io/obj/sheep_vase_5.mtl)"
         position="0 0 -5"
         scale="7 7 7 "           
-        animation__rotate="property: rotation; easing: linear; to: 0 360 0; startEvents: rotate; dur: 1000; dir: alternate; loop: 2"
+        animation__rotate="property: rotation; easing: linear; to: 0 360 0; startEvents: rotate; resumeEvents: cont; pauseEvents: stop; dur: 7000; loop: true"
         animation__scaleUp="property: scale; easing: linear; to: 10 10 10; startEvents: scaleUp; dur: 1000;"
         animation__scaleDown="property: scale; easing: linear; to: 7 7 7; startEvents: scaleDown; dur: 1000;"
       ></a-entity> 
@@ -73,7 +73,18 @@
 <script>
   document.querySelector("#r_btn").addEventListener("click", (e)=> {
     var el = document.querySelector("#rotate");
-    el.emit('rotate');
+    if (rotateFlag == 0) {
+      rotateFlag = 1;
+      el.emit('rotate');
+    }
+    else if (rotateFlag == 1) {
+      rotateFlag = 2;
+      el.emit('stop');
+    }
+    else if (rotateFlag == 2) {
+      rotateFlag = 1;
+      el.emit('cont');
+    }
   });
 
   var scaleFlag = 0;
