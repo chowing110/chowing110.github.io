@@ -60,7 +60,8 @@
       <a-entity  id="rotate" 
         obj-model="obj:url(https://chowing110.github.io/obj/sheep_vase_5.obj);
         mtl:url(https://chowing110.github.io/obj/sheep_vase_5.mtl)"
-        position="0 0 -5"
+        position="50 0 -5"
+        rotation="-45 0 0"
         scale="7 7 7 "           
         animation__rotate="property: rotation; easing: linear; to: 0 360 0; startEvents: rotate; resumeEvents: cont; pauseEvents: stop; dur: 7000; loop: true"
         animation__scaleUp="property: scale; easing: linear; to: 10 10 10; startEvents: scaleUp; dur: 1000;"
@@ -71,6 +72,7 @@
   </a-scene>
 </body>
 <script>
+  var rotateFlag = 0;
   document.querySelector("#r_btn").addEventListener("click", (e)=> {
     var el = document.querySelector("#rotate");
     if (rotateFlag == 0) {
@@ -88,16 +90,16 @@
   });
 
   var scaleFlag = 0;
-    document.querySelector("#s_btn").addEventListener("click", (e)=> {
-      var el = document.querySelector("#rotate");
-      if (scaleFlag == 0) {
-        scaleFlag = 1;
-        el.emit('scaleUp');
-      }
-      else if (scaleFlag == 1) {
-        scaleFlag = 0;
-        el.emit('scaleDown');
-      }
-    });
+  document.querySelector("#s_btn").addEventListener("click", (e)=> {
+    var el = document.querySelector("#rotate");
+    if (scaleFlag == 0) {
+      scaleFlag = 1;
+      el.emit('scaleUp');
+    }
+    else if (scaleFlag == 1) {
+      scaleFlag = 0;
+      el.emit('scaleDown');
+    }
+  });
 </script>
 </html>
