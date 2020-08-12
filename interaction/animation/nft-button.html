@@ -37,9 +37,8 @@
     <div>Loading, please wait...</div>
   </div>
   <div style='position: fixed; top: 10px; width:100%; text-align: center; z-index: 9999;'>
-    <button>
-      Rotate
-    </button>
+    <button id="r_btn">Rotate</button>
+    <button id="s_btn">Scale</button>
   </div>
   <a-scene
     vr-mode-ui="enabled: false;"
@@ -64,6 +63,8 @@
         position="0 0 -5"
         scale="7 7 7 "           
         animation__rotate="property: rotation; easing: linear; to: 0 360 0; startEvents: rotate; dur: 1000; dir: alternate; loop: 2"
+        animation__scaleUp="property: scale; easing: linear; to: 0.3 0.3 0.3; startEvents: scaleUp; dur: 1000;"
+        animation__scaleDown="property: scale; easing: linear; to: 0.15 0.15 0.15; startEvents: scaleDown; dur: 1000;"
       ></a-entity> 
     </a-nft>
     <a-entity camera></a-entity>
@@ -73,6 +74,19 @@
   document.querySelector("button").addEventListener("click", (e)=> {
     var el = document.querySelector("#rotate");
     el.emit('rotate');
-  })
+  });
+
+  var scaleFlag = 0;
+    document.querySelector("#s_btn").addEventListener("click", (e)=> {
+      var el = document.querySelector("#rotate");
+      if (scaleFlag == 0) {
+        scaleFlag = 1;
+        el.emit('scaleUp');
+      }
+      else if (scaleFlag == 1) {
+        scaleFlag = 0;
+        el.emit('scaleDown');
+      }
+    });
 </script>
 </html>
