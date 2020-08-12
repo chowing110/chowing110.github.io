@@ -42,8 +42,9 @@
       ></a-entity> 
 
       <a-entity 
+        id = "orbit"
         rotation="0 0 0" 
-        animation__rotate="property: rotation; easing: linear; to: 0 360 0; dur: 7000; loop: true"
+        animation__rotate="property: rotation; easing: linear; to: 0 360 0; startEvents: rotate; resumeEvents: cont; pauseEvents: stop; dur: 7000; loop: true"
       >
         <a-entity 
         obj-model="obj:url(https://chowing110.github.io/obj/sheep_vase_5.obj);
@@ -59,17 +60,21 @@
     var rotateFlag = 0;
     document.querySelector("#r_btn").addEventListener("click", (e)=> {
       var el = document.querySelector("#rotate");
+      var ele = document.querySelector("#orbit");
       if (rotateFlag == 0) {
         rotateFlag = 1;
         el.emit('rotate');
+        ele.emit('rotate');
       }
       else if (rotateFlag == 1) {
         rotateFlag = 2;
         el.emit('stop');
+        ele.emit('stop');
       }
       else if (rotateFlag == 2) {
         rotateFlag = 1;
         el.emit('cont');
+        ele.emit('cont');
       }
     });
 
