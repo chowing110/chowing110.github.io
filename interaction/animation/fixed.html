@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>Image based tracking AR.js demo</title>
+    <!-- import aframe and then ar.js with image tracking / location based features -->
+    <script src="https://cdn.jsdelivr.net/gh/aframevr/aframe@1c2407b26c61958baa93967b5412487cd94b290b/dist/aframe-master.min.js"></script>
+    <script src="https://raw.githack.com/AR-js-org/AR.js/master/aframe/build/aframe-ar-nft.js"></script>
+    <script src="click-listener.js"></script>
+    <!-- style for the loader -->
+<style>
+  .arjs-loader {
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-color: rgba(0, 0, 0, 0.8);
+    z-index: 9999;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .arjs-loader div {
+    text-align: center;
+    font-size: 1.25em;
+    color: white;
+  }
+</style>
+</head>
+
+<body style="margin : 0px; overflow: hidden;">
+  <!-- minimal loader shown until image descriptors are loaded -->
+  <div class="arjs-loader">
+    <div>Loading, please wait...</div>
+  </div>
+  <div style='position: fixed; top: 10px; width:100%; text-align: center; z-index: 9999;'>
+    <button id="r_btn">Rotate</button>
+    <button id="s_btn">Scale</button>
+  </div>
+  <a-scene
+    vr-mode-ui="enabled: false;"
+    renderer="logarithmicDepthBuffer: true;"
+    embedded
+    arjs="trackingMethod: best; sourceType: webcam;debugUIEnabled: false;"
+  >
+    <!-- we use cors proxy to avoid cross-origin problems -->
+    <a-nft
+      type="nft"
+      url="./descriptors/2"
+      smooth="true"
+      smoothCount="10"
+      smoothTolerance=".01"
+      smoothThreshold="5"
+    >
+    </a-nft>
+    <a-entity id="mouseCursor" cursor="rayOrigin: mouse" raycaster="objects: .clickable"></a-entity>
+    <a-entity  id="rotate" 
+      obj-model="obj:url(https://chowing110.github.io/obj/sheep_vase_5.obj);
+      mtl:url(https://chowing110.github.io/obj/sheep_vase_5.mtl)"
+      position="50 0 -5"
+      rotation="-45 0 0"
+      scale="7 7 7"
+      visible="false"
+      animation__rotate="property: rotation; easing: linear; to: 0 360 0; startEvents: rotate; resumeEvents: cont; pauseEvents: stop; dur: 7000; loop: true"
+      animation__scaleUp="property: scale; easing: linear; to: 10 10 10; startEvents: scaleUp; dur: 1000;"
+      animation__scaleDown="property: scale; easing: linear; to: 7 7 7; startEvents: scaleDown; dur: 1000;"
+      >
+    </a-entity>
+    <a-entity camera></a-entity>
+  </a-scene>
+</body>
+<script>
+  var rotateFlag = 0;
+  document.querySelector("#r_btn").addEventListener("click", (e)=> {
+    var el = document.querySelector("#rotate");
+    if (rotateFlag == 0) {
+      rotateFlag = 1;
+      el.emit('rotate');
+    }
+    else if (rotateFlag == 1) {
+      rotateFlag = 2;
+      el.emit('stop');
+    }
+    else if (rotateFlag == 2) {
+      rotateFlag = 1;
+      el.emit('cont');
+    }
+  });
+
+  var scaleFlag = 0;
+  document.querySelector("#s_btn").addEventListener("click", (e)=> {
+    var el = document.querySelector("#rotate");
+    if (scaleFlag == 0) {
+      scaleFlag = 1;
+      el.emit('scaleUp');
+    }
+    else if (scaleFlag == 1) {
+      scaleFlag = 0;
+      el.emit('scaleDown');
+    }
+  });
+
+  document.querySelector("a-nft").addEventListener("markerFound", (e)=> {
+    var el = document.querySelector("#rotate");
+    el.setAttribute('visible', true);
+  });
+
+  document.querySelector("a-nft").addEventListener("markerLost", (e)=> {
+    var el = document.querySelector("#rotate");
+    el.setAttribute('visible', false);
+  });
+</script>
+</html>
