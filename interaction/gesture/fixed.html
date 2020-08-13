@@ -63,7 +63,7 @@
         el.setAttribute('visible', false);
 
         var ele = document.querySelector("a-scene");
-        ele.setAttribute('visible', false);
+        ele.emit('markerLost');
       });
     </script>
   </body>
