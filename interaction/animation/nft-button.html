@@ -70,36 +70,36 @@
     </a-nft>
     <a-entity camera></a-entity>
   </a-scene>
-</body>
-<script>
-  var rotateFlag = 0;
-  document.querySelector("#r_btn").addEventListener("click", (e)=> {
-    var el = document.querySelector("#rotate");
-    if (rotateFlag == 0) {
-      rotateFlag = 1;
-      el.emit('rotate');
-    }
-    else if (rotateFlag == 1) {
-      rotateFlag = 2;
-      el.emit('stop');
-    }
-    else if (rotateFlag == 2) {
-      rotateFlag = 1;
-      el.emit('cont');
-    }
-  });
+  <script>
+    var rotateFlag = 0;
+    document.querySelector("#r_btn").addEventListener("click", (e)=> {
+      var el = document.querySelector("#rotate");
+      if (rotateFlag == 0) {
+        rotateFlag = 1;
+        el.emit('rotate');
+      }
+      else if (rotateFlag == 1) {
+        rotateFlag = 2;
+        el.emit('stop');
+      }
+      else if (rotateFlag == 2) {
+        rotateFlag = 1;
+        el.emit('cont');
+      }
+    });
 
-  var scaleFlag = 0;
-  document.querySelector("#s_btn").addEventListener("click", (e)=> {
-    var el = document.querySelector("#rotate");
-    if (scaleFlag == 0) {
-      scaleFlag = 1;
-      el.emit('scaleUp');
-    }
-    else if (scaleFlag == 1) {
-      scaleFlag = 0;
-      el.emit('scaleDown');
-    }
-  });
-</script>
+    var scaleFlag = 0;
+    document.querySelector("#s_btn").addEventListener("click", (e)=> {
+      var el = document.querySelector("#rotate");
+      if (scaleFlag == 0) {
+        scaleFlag = 1;
+        el.emit('scaleUp');
+      }
+      else if (scaleFlag == 1) {
+        scaleFlag = 0;
+        el.emit('scaleDown');
+      }
+    });
+  </script>
+</body>
 </html>

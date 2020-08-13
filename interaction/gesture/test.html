@@ -35,9 +35,9 @@
         <a-entity camera wasd-controls></a-entity>
       </a-entity>
     </a-scene>
+    <script>
+      var el = document.querySelector("a-scene");
+      el.emit('markerFound');
+    </script>
   </body>
-  <script>
-    var el = document.querySelector("a-scene");
-    el.emit('markerFound');
-</script>
 </html>

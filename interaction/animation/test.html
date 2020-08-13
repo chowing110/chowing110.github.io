@@ -20,76 +20,77 @@
       }
     });
   </script>
-  <div style='position: fixed; top: 10px; width:100%; text-align: center; z-index: 9999;'>
-    <button id="r_btn">Rotate</button>
-    <button id="s_btn">Scale</button>
-  </div>
-    <a-scene>         
-      <a-entity id="mouseCursor" cursor="rayOrigin: mouse" raycaster="objects: .clickable"></a-entity>
-   
-      <a-entity  id="rotate" 
-        obj-model="obj:url(https://chowing110.github.io/obj/sheep_vase_5.obj);
-        mtl:url(https://chowing110.github.io/obj/sheep_vase_5.mtl)"
-        position="0 0 -5"
-        scale="0.15 0.15 0.15"           
-        animation__rotate="property: rotation; easing: linear; to: 0 360 0; startEvents: rotate; resumeEvents: cont; pauseEvents: stop; dur: 7000; loop: true"
-        animation__scaleUp="property: scale; easing: linear; to: 0.3 0.3 0.3; startEvents: scaleUp; dur: 1000;"
-        animation__scaleDown="property: scale; easing: linear; to: 0.15 0.15 0.15; startEvents: scaleDown; dur: 1000;"
-      ></a-entity> 
+  <body>
+    <div style='position: fixed; top: 10px; width:100%; text-align: center; z-index: 9999;'>
+      <button id="r_btn">Rotate</button>
+      <button id="s_btn">Scale</button>
+    </div>
+      <a-scene>         
+        <a-entity id="mouseCursor" cursor="rayOrigin: mouse" raycaster="objects: .clickable"></a-entity>
      
-      <a-entity  id="redBall" 
-        class="clickable" geometry="primitive: sphere; radius: 0.33" position="0 2 -5" material="color: red" click-listener
-      ></a-entity> 
+        <a-entity  id="rotate" 
+          obj-model="obj:url(https://chowing110.github.io/obj/sheep_vase_5.obj);
+          mtl:url(https://chowing110.github.io/obj/sheep_vase_5.mtl)"
+          position="0 0 -5"
+          scale="0.15 0.15 0.15"           
+          animation__rotate="property: rotation; easing: linear; to: 0 360 0; startEvents: rotate; resumeEvents: cont; pauseEvents: stop; dur: 7000; loop: true"
+          animation__scaleUp="property: scale; easing: linear; to: 0.3 0.3 0.3; startEvents: scaleUp; dur: 1000;"
+          animation__scaleDown="property: scale; easing: linear; to: 0.15 0.15 0.15; startEvents: scaleDown; dur: 1000;"
+        ></a-entity> 
+       
+        <a-entity  id="redBall" 
+          class="clickable" geometry="primitive: sphere; radius: 0.33" position="0 2 -5" material="color: red" click-listener
+        ></a-entity> 
 
-      <a-entity 
-        id = "orbit"
-        rotation="0 0 0" 
-        animation__rotate="property: rotation; easing: linear; to: 0 360 0; startEvents: rotate; resumeEvents: cont; pauseEvents: stop; dur: 7000; loop: true"
-      >
         <a-entity 
-        obj-model="obj:url(https://chowing110.github.io/obj/sheep_vase_5.obj);
-        mtl:url(https://chowing110.github.io/obj/sheep_vase_5.mtl)"
-        position="0 0 -5"
-        scale="0.15 0.15 0.15"           
-      ></a-entity>
-      </a-entity>
+          id = "orbit"
+          rotation="0 0 0" 
+          animation__rotate="property: rotation; easing: linear; to: 0 360 0; startEvents: rotate; resumeEvents: cont; pauseEvents: stop; dur: 7000; loop: true"
+        >
+          <a-entity 
+          obj-model="obj:url(https://chowing110.github.io/obj/sheep_vase_5.obj);
+          mtl:url(https://chowing110.github.io/obj/sheep_vase_5.mtl)"
+          position="0 0 -5"
+          scale="0.15 0.15 0.15"           
+        ></a-entity>
+        </a-entity>
 
-    </a-scene>
+      </a-scene>
 
-  <script>
-    var rotateFlag = 0;
-    document.querySelector("#r_btn").addEventListener("click", (e)=> {
-      var el = document.querySelector("#rotate");
-      var ele = document.querySelector("#orbit");
-      if (rotateFlag == 0) {
-        rotateFlag = 1;
-        el.emit('rotate');
-        ele.emit('rotate');
-      }
-      else if (rotateFlag == 1) {
-        rotateFlag = 2;
-        el.emit('stop');
-        ele.emit('stop');
-      }
-      else if (rotateFlag == 2) {
-        rotateFlag = 1;
-        el.emit('cont');
-        ele.emit('cont');
-      }
-    });
+    <script>
+      var rotateFlag = 0;
+      document.querySelector("#r_btn").addEventListener("click", (e)=> {
+        var el = document.querySelector("#rotate");
+        var ele = document.querySelector("#orbit");
+        if (rotateFlag == 0) {
+          rotateFlag = 1;
+          el.emit('rotate');
+          ele.emit('rotate');
+        }
+        else if (rotateFlag == 1) {
+          rotateFlag = 2;
+          el.emit('stop');
+          ele.emit('stop');
+        }
+        else if (rotateFlag == 2) {
+          rotateFlag = 1;
+          el.emit('cont');
+          ele.emit('cont');
+        }
+      });
 
-    var scaleFlag = 0;
-    document.querySelector("#s_btn").addEventListener("click", (e)=> {
-      var el = document.querySelector("#rotate");
-      if (scaleFlag == 0) {
-        scaleFlag = 1;
-        el.emit('scaleUp');
-      }
-      else if (scaleFlag == 1) {
-        scaleFlag = 0;
-        el.emit('scaleDown');
-      }
-    });
-  </script>
-  
+      var scaleFlag = 0;
+      document.querySelector("#s_btn").addEventListener("click", (e)=> {
+        var el = document.querySelector("#rotate");
+        if (scaleFlag == 0) {
+          scaleFlag = 1;
+          el.emit('scaleUp');
+        }
+        else if (scaleFlag == 1) {
+          scaleFlag = 0;
+          el.emit('scaleDown');
+        }
+      });
+    </script>
+  </body>
 </html>

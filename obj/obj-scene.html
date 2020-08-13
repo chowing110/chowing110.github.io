@@ -87,14 +87,14 @@
         <a-entity camera look-controls wasd-controls></a-entity>
       </a-entity>
     </a-scene>
+    <script>
+      
+      document.querySelector("button").addEventListener("click", (e)=> {
+        // do stuff here.
+        // animation__mousedown="property: rotation; easing: linear; to: 0 360 0; startEvents: mouseenter; dur: 10000";
+        var el = document.querySelector("#rotate");
+        el.emit('rotate');
+      })
+    </script>
   </body>
-  <script>
-    
-    document.querySelector("button").addEventListener("click", (e)=> {
-      // do stuff here.
-      // animation__mousedown="property: rotation; easing: linear; to: 0 360 0; startEvents: mouseenter; dur: 10000";
-      var el = document.querySelector("#rotate");
-      el.emit('rotate');
-    })
-  </script>
 </html>
