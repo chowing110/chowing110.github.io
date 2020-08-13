@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <title>Gesture Interactions - A-Frame & AR.js</title>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <link rel="stylesheet" href="styles.css" />
+
+    <script src="https://aframe.io/releases/1.0.4/aframe.min.js"></script>
+  </head>
+
+  <body>
+    <a-scene
+      background="color: #222"
+    >
+      <a-entity  id="vase" 
+      obj-model="obj:url(https://chowing110.github.io/obj/sheep_vase_5.obj);
+      mtl:url(https://chowing110.github.io/obj/sheep_vase_5.mtl)"
+      position="0 1 -3"
+      rotation="0 0 0"
+      scale="0.15 0.15 0.15"
+      >
+      </a-entity>
+      <a-entity
+        gltf-model='https://arjs-cors-proxy.herokuapp.com/https://raw.githack.com/AR-js-org/AR.js/master/aframe/examples/image-tracking/nft/trex/scene.gltf'
+        scale="0.1 0.1 0.1"
+        position="1 0 -3"
+        class="clickable"
+      >
+      </a-entity>
+      <a-entity position="0 1.8 2">
+        <a-entity camera wasd-controls></a-entity>
+      </a-entity>
+    </a-scene>
+    <script>
+      var el = document.querySelector("a-scene");
+      el.emit('markerFound');
+    </script>
+  </body>
+</html>

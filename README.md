@@ -45,6 +45,11 @@ This is a testing demo for multiple NFT markers built with AR.js and A-Frame.
 
 --Demo in pure A-Frame https://chowing110.github.io/interaction/animation/test.html (Both red ball and button works)
 
+# Demo - Multi-markers
+--Goto https://chowing110.github.io/multi-markers/fixed.html
+
+--Scan https://chowing110.github.io/img-src/2.jpg
+
 # Notes for developer
 * Create NFT marker for image
 https://github.com/Carnaux/NFT-Marker-Creator
