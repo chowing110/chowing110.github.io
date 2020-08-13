@@ -4,70 +4,40 @@
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <title>Image based tracking AR.js demo</title>
-    <!-- import aframe and then ar.js with image tracking / location based features -->
-    <script src="https://cdn.jsdelivr.net/gh/aframevr/aframe@1c2407b26c61958baa93967b5412487cd94b290b/dist/aframe-master.min.js"></script>
-    <script src="https://raw.githack.com/AR-js-org/AR.js/master/aframe/build/aframe-ar-nft.js"></script>
-
-    <!-- style for the loader -->
-<style>
-  .arjs-loader {
-    height: 100%;
-    width: 100%;
-    position: absolute;
-    top: 0;
-    left: 0;
-    background-color: rgba(0, 0, 0, 0.8);
-    z-index: 9999;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
-
-  .arjs-loader div {
-    text-align: center;
-    font-size: 1.25em;
-    color: white;
-  }
-</style>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
 </head>
 
-<body style="margin : 0px; overflow: hidden;">
-  <!-- minimal loader shown until image descriptors are loaded -->
-  <div class="arjs-loader">
-    <div>Loading, please wait...</div>
+<body>
+  <div class="container">
+    <h1>Web AR Demo with AR.js</h1>
+    <p>This is a testing demo for multiple NFT markers built with AR.js and A-Frame.</p>
+    <h1>Links to all demo</h1>
+    <p>--Go to <a href="https://chowing110.github.io" rel="nofollow">https://chowing110.github.io</a></p>
+    <h1>Demo - Hand gesture on image tracking</h1>
+    <p>--Go to <a href="https://chowing110.github.io/interaction/gesture/gesture.html" rel="nofollow">https://chowing110.github.io/interaction/gesture/gesture.html</a></p>
+    <p>--Model in fixed position <a href="https://chowing110.github.io/interaction/gesture/fixed.html" rel="nofollow">https://chowing110.github.io/interaction/gesture/fixed.html</a></p>
+    <p>--Scan <a href="https://chowing110.github.io/img-src/2.jpg" rel="nofollow">https://chowing110.github.io/img-src/2.jpg</a> to view the custom model and play with it.</p>
+    <p>--Demo in pure A-Frame <a href="https://chowing110.github.io/interaction/gesture/test.html" rel="nofollow">https://chowing110.github.io/interaction/gesture/test.html</a></p>
+    <p>--Cloned from <a href="https://github.com/fcor/arjs-gestures">https://github.com/fcor/arjs-gestures</a></p>
+    <h1>Demo - Clicking event on image tracking</h1>
+    <p>--Go to <a href="https://chowing110.github.io/interaction/click/click.html" rel="nofollow">https://chowing110.github.io/interaction/click/click.html</a></p>
+    <p>--Scan <a href="https://github.com/nicolocarpignoli/nicolocarpignoli.github.io/blob/master/ar-click-events/06-barcode.png">https://github.com/nicolocarpignoli/nicolocarpignoli.github.io/blob/master/ar-click-events/06-barcode.png</a> to view the custom model and play with it.</p>
+    <p>--Cloned from <a href="https://medium.com/swlh/how-to-handle-click-events-on-ar-js-f397ea5994d" rel="nofollow">https://medium.com/swlh/how-to-handle-click-events-on-ar-js-f397ea5994d</a></p>
+    <h1>Demo - Playing video on image tracking</h1>
+    <p>--Go to <a href="https://chowing110.github.io/video/index.html" rel="nofollow">https://chowing110.github.io/video/index.html</a></p>
+    <p>--Scan <a href="https://chowing110.github.io/img-src/2.jpg" rel="nofollow">https://chowing110.github.io/img-src/2.jpg</a></p>
+    <p>--Demo in pure A-Frame <a href="https://chowing110.github.io/video/test.html" rel="nofollow">https://chowing110.github.io/video/test.html</a> (Click on video)</p>
+    <p>--Cloned from <a href="https://github.com/AR-js-org/AR.js/tree/master/aframe/examples/image-tracking/nft-video">https://github.com/AR-js-org/AR.js/tree/master/aframe/examples/image-tracking/nft-video</a></p>
+    <h1>Demo - Playing animation by event (Click to rotate)</h1>
+    <p>--Go to <a href="https://chowing110.github.io/interaction/animation/nft.html" rel="nofollow">https://chowing110.github.io/interaction/animation/nft.html</a> (Click the red ball)</p>
+    <p>--Go to <a href="https://chowing110.github.io/interaction/animation/nft-button.html" rel="nofollow">https://chowing110.github.io/interaction/animation/nft-button.html</a> (Click the button)</p>
+    <p>--Model in fixed position <a href="https://chowing110.github.io/interaction/animation/fixed.html" rel="nofollow">https://chowing110.github.io/interaction/animation/fixed.html</a> (Click the button)</p>
+    <p>--Scan <a href="https://chowing110.github.io/img-src/2.jpg" rel="nofollow">https://chowing110.github.io/img-src/2.jpg</a></p>
+    <p>--Demo in pure A-Frame <a href="https://chowing110.github.io/interaction/animation/test.html" rel="nofollow">https://chowing110.github.io/interaction/animation/test.html</a> (Both red ball and button works)</p>
   </div>
-  <a-scene
-    vr-mode-ui="enabled: false;"
-    renderer="logarithmicDepthBuffer: true;"
-    embedded
-    arjs="trackingMethod: best; sourceType: webcam;debugUIEnabled: false;"
-  >
-    <!-- we use cors proxy to avoid cross-origin problems -->
-    <a-nft
-      type="nft"
-      url="./descriptors/2"
-      smooth="true"
-      smoothCount="10"
-      smoothTolerance=".01"
-      smoothThreshold="5"
-    >
-      <a-entity 
-      text="value:This is sheep_vase_5.obj"
-      rotation="-45 0 0"
-      position="0 100 0"
-      scale="400 400 400"
-      >
-      </a-entity>
-      <a-entity 
-        obj-model="obj:url(https://chowing110.github.io/obj/sheep_vase_5.obj);
-        mtl:url(https://chowing110.github.io/obj/sheep_vase_5.mtl)"
-        position="0 0 0"
-        rotation="-45 0 0"
-        scale="5 5 5"
-      >
-      </a-entity>
-    </a-nft>
-    <a-entity camera></a-entity>
-  </a-scene>
+
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
 </body>
 </html>
