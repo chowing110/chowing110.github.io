@@ -49,18 +49,21 @@
       </a-entity>
     </a-scene>
     <script>
-      var el = document.querySelector(".clickable");
-      el.setAttribute('visible', true);
-      var el = document.querySelector("a-scene");
-      el.emit('markerFound');
+      
       document.querySelector("a-nft").addEventListener("markerFound", (e)=> {
         var el = document.querySelector(".clickable");
         el.setAttribute('visible', true);
+
+        var ele = document.querySelector("a-scene");
+        ele.emit('markerFound');
       });
 
       document.querySelector("a-nft").addEventListener("markerLost", (e)=> {
         var el = document.querySelector(".clickable");
         el.setAttribute('visible', false);
+
+        var ele = document.querySelector("a-scene");
+        ele.setAttribute('visible', false);
       });
     </script>
   </body>
