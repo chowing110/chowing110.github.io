@@ -1,0 +1,74 @@
+<script src="https://cdn.jsdelivr.net/gh/aframevr/aframe@1c2407b26c61958baa93967b5412487cd94b290b/dist/aframe-master.min.js"></script>
+
+<script src='https://raw.githack.com/AR-js-org/AR.js/master/aframe/build/aframe-ar-nft.js'></script>
+
+<script src='play-by-click.js'></script>
+<script src='video-handler.js'></script>
+
+<style>
+    .arjs-loader {
+        height: 100%;
+        width: 100%;
+        position: absolute;
+        top: 0;
+        left: 0;
+        background-color: rgba(0, 0, 0, 0.8);
+        z-index: 9999;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .arjs-loader div {
+        text-align: center;
+        font-size: 1.25em;
+        color: white;
+    }
+</style>
+
+<body style='margin : 0px; overflow: hidden;'>
+    <div class="arjs-loader">
+        <div>Loading, please wait...</div>
+    </div>
+    <a-scene
+        vr-mode-ui="enabled: false;"
+        renderer='antialias: true; alpha: true; precision: mediump;'
+        embedded arjs='trackingMethod: best; sourceType: webcam; debugUIEnabled: false;'>
+
+        <a-assets>
+            <video src="https://cors-anywhere.herokuapp.com/https://www.w3schools.com/html/mov_bbb.mp4"
+                preload="auto" id="vid" response-type="arraybuffer" loop
+                crossorigin webkit-playsinline autoplay muted playsinline>
+            </video>
+        </a-assets>
+
+        <a-nft
+            type='nft' url='../descriptors/2'
+            smooth="true" smoothCount="10" smoothTolerance="0.01" smoothThreshold="5"
+        >
+        </a-nft>
+        <a-video
+            play-by-click
+            src="#vid"
+            position='0 2 -3'
+            visible='false'
+            width='2'
+            height='1.17'
+            >
+        </a-video>
+    <a-entity position="0 1.8 2">
+        <a-entity camera></a-entity>
+    </a-entity>
+  </a-scene>
+  <script >
+    document.querySelector("a-nft").addEventListener("markerFound", (e)=> {
+      var el = document.querySelector("a-video");
+      el.setAttribute('visible', true);
+    });
+
+    document.querySelector("a-nft").addEventListener("markerLost", (e)=> {
+      var el = document.querySelector("a-video");
+      el.setAttribute('visible', false);
+    });
+  </script>
+</body>
