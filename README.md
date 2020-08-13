@@ -78,7 +78,7 @@ https://ar-js-org.github.io/AR.js-Docs/image-tracking/#create-image-descriptors
 	either no content appears or only one content appears
 	it is not supported
 
-	*✔ (workaround) exclude a-entity as a child of a-nft
+	* ✔ (workaround) exclude a-entity as a child of a-nft
 	fixed position and tweaks visibility 
 	visible default set to false
 	listen to markerFound and markerLost then setAttribute
