@@ -50,6 +50,10 @@ This is a testing demo for multiple NFT markers built with AR.js and A-Frame.
 
 --Scan https://chowing110.github.io/img-src/2.jpg
 
+--Described image
+	* https://chowing110.github.io/img-src/2a.jpg
+	* https://chowing110.github.io/img-src/2b.jpg
+
 # Notes for developer
 * Create NFT marker for image
 https://github.com/Carnaux/NFT-Marker-Creator
