@@ -13,6 +13,8 @@ This is a testing demo for multiple NFT markers built with AR.js and A-Frame.
 # Demo - Hand gesture on image tracking
 --Go to https://chowing110.github.io/interaction/gesture/gesture.html
 
+--Model in fixed position https://chowing110.github.io/interaction/gesture/fixed.html
+
 --Scan https://chowing110.github.io/img-src/2.jpg to view the custom model and play with it.
 
 --Demo in pure A-Frame https://chowing110.github.io/interaction/gesture/test.html
@@ -37,7 +39,10 @@ This is a testing demo for multiple NFT markers built with AR.js and A-Frame.
 
 # Demo - Playing animation by event (Click to rotate)
 --Go to https://chowing110.github.io/interaction/animation/nft.html (Click the red ball)
+
 --Go to https://chowing110.github.io/interaction/animation/nft-button.html (Click the button)
+
+--Model in fixed position https://chowing110.github.io/interaction/animation/fixed.html (Click the button)
 
 --Scan https://chowing110.github.io/img-src/2.jpg
 
